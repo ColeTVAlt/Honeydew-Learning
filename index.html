@@ -5,66 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Honeydew Learning | Student Dashboard</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="dashboard-container">
-        <div class="background-hero"></div> <nav class="side-nav">
-            <div class="nav-logo">🍈</div> <div class="nav-icon active" data-tooltip="Home">🏠</div>
-            <div class="nav-icon" data-tooltip="My Library">📚</div>
-            <div class="nav-icon" data-tooltip="Settings">⚙️</div>
-            <div class="nav-icon" data-tooltip="Profile">👤</div>
+        <div class="background-hero"></div>
+
+        <nav class="side-nav">
+            <div class="nav-logo">🍈</div>
+            <div class="nav-icon active">🏠</div>
+            <div class="nav-icon">📚</div>
+            <div class="nav-icon">⚙️</div>
         </nav>
 
-        <div class="main-content">
+        <main class="main-content">
             <header class="top-bar">
                 <div class="user-profile">
                     <span class="profile-avatar">S</span>
                     <span class="profile-name">Student ID: 82931</span>
-                    <span class="profile-level">🎓 138,827</span>
                 </div>
-                <div class="top-icons">
-                    <div class="top-icon game-pass" data-tooltip="Learning Pass">🎮</div>
-                    <div class="top-icon search" data-tooltip="Search">🔍</div>
-                    <div class="top-icon settings" data-tooltip="Settings">⚙️</div>
-                    <div class="top-time" id="clock">05:01 PM</div>
-                </div>
+                <div class="top-time" id="clock">05:01 PM</div>
             </header>
 
-            <section class="tiles-grid">
-                <div class="hero-feature tile-item" id="hero-feature-tile">
-                    <h2 class="tile-title">Fallout Learning Module</h2>
-                    <p class="tile-description">Explore post-apocalyptic history and resource management.</p>
-                </div>
-
-                <div class="main-tiles-row" id="main-tiles-row">
+            <section class="tiles-grid" id="game-grid">
+                <div class="hero-feature tile-item">
+                    <div class="hero-text">
+                        <h2>Advanced Calculus</h2>
+                        <p>Continue your module on spatial derivatives.</p>
                     </div>
-
-                <div class="browse-games tile-item large-tile">
-                    <div class="tile-bg"></div>
-                    <h3 class="tile-title">Browse your Learning Modules</h3>
-                    <p class="tile-description">All subjects and courses</p>
                 </div>
+                </section>
+        </main>
+    </div>
 
-                <div class="recently-played tile-item large-tile">
-                    <div class="tile-bg"></div>
-                    <h3 class="tile-title">Recently Accessed Modules</h3>
-                    <p class="tile-description">Pick up where you left off</p>
-                </div>
-
-                <div class="game-pass-promo tile-item large-tile">
-                    <div class="tile-bg"></div>
-                    <h3 class="tile-title">New Learning Pass Content</h3>
-                    <p class="tile-description">Free access with your student ID</p>
-                </div>
-
-                 <div class="other-promo tile-item large-tile">
-                    <div class="tile-bg"></div>
-                    <h3 class="tile-title">Honeydew Study Guides</h3>
-                    <p class="tile-description">Coming soon!</p>
-                </div>
-
-            </section>
+    <div id="game-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div id="game-screen"></div>
         </div>
     </div>
 
