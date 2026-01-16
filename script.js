@@ -2,7 +2,7 @@
 // 1. DATA CENTER: ADD YOUR GAMES HERE
 // ==========================================
 const gamesList = [
-    { name: "Algebra Resources: Section 1", desc: "Resources for algebra part one.", url: "https://arithmeticworld.framer.website/lesson1", thumb: "https://picsum.photos/300/201" },
+    { name: "Algebra Resources: Section 1", desc: "Resources for algebra part one.", url: "https://arithmeticworld.framer.website/lesson1", thumb: "images/aquapark.jpg" },
     { name: "Quantum Physics", desc: "Science Lab", url: "https://example.com/game2", thumb: "https://picsum.photos/300/202" },
     { name: "Global History", desc: "Civics Exam", url: "https://example.com/game3", thumb: "https://picsum.photos/300/203" },
     { name: "Chemical Bonds", desc: "Organic Chem", url: "https://example.com/game4", thumb: "https://picsum.photos/300/204" },
