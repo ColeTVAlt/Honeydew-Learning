@@ -1,6 +1,3 @@
-// ==========================================
-// 1. DATA CENTER: ADD YOUR GAMES HERE
-// ==========================================
 const gamesList = [
     { name: "Kinetic Energy & Friction Simulation", desc: "Resources for kinetic energy.", url: "https://arithmeticworld.framer.website/lesson1", thumb: "images/aquapark.jpg" },
     { name: "Quantum Physics", desc: "Science Lab", url: "https://arithmeticworld.framer.website/lesson2", thumb: "images/backrooms.png" },
@@ -14,13 +11,12 @@ const gamesList = [
     { name: "Agricultural Revolution", desc: "Socio-Economic Impacts", url: "https://arithmeticworld.framer.website/lesson10", thumb: "images/stealabrainrot.png" },
     { name: "Psycholinguistics", desc: "Cognitive Syntax Lab", url: "https://arithmeticworld.framer.website/lesson14", thumb: "images/retrobowl.png" },
     { name: "Renaissance Art History", desc: "Classical Perspective", url: "https://arithmeticworld.framer.website/lesson15", thumb: "images/vex6.png" },
-    // --- Filling the rest with unique academic titles ---
-    { name: "Micro-Economic Theory", desc: "Supply and Demand", url: "https://arithmeticworld.framer.website/lesson16", thumb: "images/driftboss.png" },
-    { name: "Linguistic Phonetics", desc: "Vowel Sound Analysis", url: "https://arithmeticworld.framer.website/lesson17", thumb: "images/driftboss.png" },
-    { name: "Fluid Dynamics", desc: "Hydraulic Pressure", url: "https://arithmeticworld.framer.website/lesson18", thumb: "images/driftboss.png" },
-    { name: "Cognitive Psychology", desc: "Memory Retention", url: "https://arithmeticworld.framer.website/lesson19", thumb: "images/driftboss.png" },
-    { name: "Calculus III", desc: "Multivariable Derivatives", url: "https://arithmeticworld.framer.website/lesson20", thumb: "images/driftboss.png" },
-    { name: "Organic Synthesis", desc: "Carbon Chains", url: "https://arithmeticworld.framer.website/lesson21", thumb: "images/driftboss.png" },
+    { name: "Micro-Economic Theory", desc: "Supply and Demand", url: "https://arithmeticworld.framer.website/lesson5", thumb: "images/driftboss.png" },
+    { name: "Linguistic Phonetics", desc: "Vowel Sound Analysis", url: "https://arithmeticworld.framer.website/lesson5", thumb: "images/driftboss.png" },
+    { name: "Fluid Dynamics", desc: "Hydraulic Pressure", url: "https://arithmeticworld.framer.website/lesson5", thumb: "images/driftboss.png" },
+    { name: "Cognitive Psychology", desc: "Memory Retention", url: "https://arithmeticworld.framer.website/lesson5", thumb: "images/driftboss.png" },
+    { name: "Calculus III", desc: "Multivariable Derivatives", url: "https://arithmeticworld.framer.website/lesson5", thumb: "images/driftboss.png" },
+    { name: "Organic Synthesis", desc: "Carbon Chains", url: "https://arithmeticworld.framer.website/lesson5", thumb: "images/driftboss.png" },
     { name: "Astrophysics", desc: "Stellar Evolution", url: "https://arithmeticworld.framer.website/lesson5", thumb: "images/driftboss.png" },
     { name: "Comparative Politics", desc: "Legislative Structures", url: "https://arithmeticworld.framer.website/lesson5", thumb: "images/driftboss.png" },
     { name: "Environmental Geology", desc: "Tectonic Activity", url: "https://arithmeticworld.framer.website/lesson5", thumb: "images/driftboss.png" },
@@ -29,38 +25,35 @@ const gamesList = [
     { name: "Ethics in Engineering", desc: "Safety Compliance", url: "https://arithmeticworld.framer.website/lesson5", thumb: "images/driftboss.png" },
 ];
 
-// ==========================================
-// 2. CORE FUNCTIONALITY
-// ==========================================
-
 function init() {
     loadProfile();
     renderTiles();
     updateClock();
     setInterval(updateClock, 1000);
+
+    // LOADING SCREEN TIMER
+    setTimeout(() => {
+        const loader = document.getElementById('loading-screen');
+        loader.style.opacity = '0';
+        setTimeout(() => { loader.style.display = 'none'; }, 1000);
+    }, 5000); // 5 seconds
 }
 
-// Tab Switching Logic
 function switchTab(tabId) {
     document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
     document.querySelectorAll('.nav-icon').forEach(icon => icon.classList.remove('active'));
-    
     document.getElementById('tab-' + tabId).classList.add('active');
     document.getElementById('btn-' + tabId).classList.add('active');
 }
 
-// Panic Button: Redirects instantly to Google Classroom
-function panic() {
-    window.location.href = "https://classroom.google.com";
-}
+function panic() { window.location.href = "https://classroom.google.com"; }
 
-// Profile Management (LocalStorage)
 function saveProfile() {
     const name = document.getElementById('name-input').value;
     if (name) {
         localStorage.setItem('honeydew_name', name);
         loadProfile();
-        alert("Profile Sync Complete!");
+        alert("ID Card Updated!");
     }
 }
 
@@ -71,18 +64,12 @@ function loadProfile() {
     document.getElementById('name-input').value = name;
 }
 
-// Rendering Games
 function renderTiles() {
     const homeGrid = document.getElementById('home-grid');
     const libraryGrid = document.getElementById('library-grid');
-
     gamesList.forEach(game => {
-        const tile = createTileElement(game);
-        libraryGrid.appendChild(tile);
-        
-        // Add clones to home grid for variety
-        const homeTile = createTileElement(game);
-        homeGrid.appendChild(homeTile);
+        homeGrid.appendChild(createTileElement(game));
+        libraryGrid.appendChild(createTileElement(game));
     });
 }
 
@@ -91,16 +78,10 @@ function createTileElement(game) {
     div.className = 'tile-item';
     div.style.backgroundImage = `url(${game.thumb})`;
     div.onclick = () => openGame(game.url);
-    div.innerHTML = `
-        <div class="tile-overlay">
-            <strong>${game.name}</strong>
-            <small>${game.desc}</small>
-        </div>
-    `;
+    div.innerHTML = `<div class="tile-overlay"><strong>${game.name}</strong><small>${game.desc}</small></div>`;
     return div;
 }
 
-// Modal Logic
 function openGame(url) {
     const modal = document.getElementById('game-modal');
     const screen = document.getElementById('game-screen');
@@ -110,7 +91,7 @@ function openGame(url) {
 
 function closeGame() {
     document.getElementById('game-modal').style.display = "none";
-    document.getElementById('game-screen').innerHTML = ""; // Stops game sound
+    document.getElementById('game-screen').innerHTML = "";
 }
 
 function updateClock() {
@@ -118,5 +99,4 @@ function updateClock() {
     document.getElementById('clock').innerText = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 }
 
-// Boot the system
 window.onload = init;
