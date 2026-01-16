@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Honeydew Learning | Student Dashboard</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="dashboard-container">
@@ -13,28 +12,45 @@
 
         <nav class="side-nav">
             <div class="nav-logo">🍈</div>
-            <div class="nav-icon active">🏠</div>
-            <div class="nav-icon">📚</div>
-            <div class="nav-icon">⚙️</div>
+            <div class="nav-icon active" onclick="switchTab('home')">🏠</div>
+            <div class="nav-icon" onclick="switchTab('library')">📚</div>
+            <div class="nav-icon" onclick="switchTab('settings')">⚙️</div>
         </nav>
 
         <main class="main-content">
             <header class="top-bar">
                 <div class="user-profile">
-                    <span class="profile-avatar">S</span>
-                    <span class="profile-name">Student ID: 82931</span>
+                    <span class="profile-avatar" id="avatar-initial">S</span>
+                    <span class="profile-name" id="display-name">Student ID: 82931</span>
                 </div>
-                <div class="top-time" id="clock">05:01 PM</div>
+                <div class="top-time" id="clock">00:00</div>
             </header>
 
-            <section class="tiles-grid" id="game-grid">
-                <div class="hero-feature tile-item">
-                    <div class="hero-text">
-                        <h2>Advanced Calculus</h2>
-                        <p>Continue your module on spatial derivatives.</p>
+            <section id="tab-home" class="tab-content active">
+                <div class="tiles-grid" id="game-grid">
+                    <div class="hero-feature tile-item">
+                        <div class="hero-text">
+                            <h2>Honeydew Pro</h2>
+                            <p>Unlock all advanced modules with your Student ID.</p>
+                        </div>
                     </div>
                 </div>
-                </section>
+            </section>
+
+            <section id="tab-library" class="tab-content">
+                <h1>Full Course Library</h1>
+                <div class="tiles-grid" id="library-grid"></div>
+            </section>
+
+            <section id="tab-settings" class="tab-content">
+                <h1>Student Profile Settings</h1>
+                <div class="settings-box">
+                    <label>Student Name:</label>
+                    <input type="text" id="name-input" placeholder="Enter name...">
+                    <button onclick="saveProfile()" class="save-btn">Save to ID Card</button>
+                    <p style="margin-top:20px; opacity:0.6;">Local Storage: <span id="storage-status">Active</span></p>
+                </div>
+            </section>
         </main>
     </div>
 
