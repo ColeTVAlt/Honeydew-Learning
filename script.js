@@ -1,4 +1,3 @@
-// Keeping your exact game list and logic
 const gamesList = [
     { name: "Kinetic Energy & Friction Simulation", desc: "Resources for kinetic energy.", url: "https://arithmeticworld.framer.website/lesson1", thumb: "images/aquapark.jpg" },
     { name: "Quantum Physics", desc: "Science Lab", url: "https://arithmeticworld.framer.website/lesson2", thumb: "images/backrooms.png" },
@@ -32,14 +31,11 @@ function init() {
     updateClock();
     setInterval(updateClock, 1000);
 
-    // Splash Screen logic
     setTimeout(() => {
         const loader = document.getElementById('loading-screen');
         if(loader) {
             loader.style.opacity = '0';
-            setTimeout(() => { 
-                loader.style.visibility = 'hidden'; // Completely remove from mouse interaction
-            }, 1000);
+            setTimeout(() => { loader.style.visibility = 'hidden'; }, 1200);
         }
     }, 5000);
 }
@@ -58,28 +54,25 @@ function saveProfile() {
     if (name) {
         localStorage.setItem('honeydew_name', name);
         loadProfile();
-        alert("ID Card Updated!");
+        alert("Profile Sync Complete!");
     }
 }
 
 function loadProfile() {
     const name = localStorage.getItem('honeydew_name') || "Cole";
-    const displayName = document.getElementById('display-name');
-    if(displayName) displayName.innerText = "Student ID: " + name;
+    document.getElementById('display-name').innerText = "STUDENT ID: " + name.toUpperCase();
 }
 
 function renderTiles() {
-    const homeGrid = document.getElementById('home-grid');
-    const libraryGrid = document.getElementById('library-grid');
-    if(!homeGrid || !libraryGrid) return;
-
+    const hGrid = document.getElementById('home-grid');
+    const lGrid = document.getElementById('library-grid');
     gamesList.forEach(game => {
-        homeGrid.appendChild(createTileElement(game));
-        libraryGrid.appendChild(createTileElement(game));
+        hGrid.appendChild(createTile(game));
+        lGrid.appendChild(createTile(game));
     });
 }
 
-function createTileElement(game) {
+function createTile(game) {
     const div = document.createElement('div');
     div.className = 'tile-item';
     div.style.backgroundImage = `url(${game.thumb})`;
@@ -89,10 +82,8 @@ function createTileElement(game) {
 }
 
 function openGame(url) {
-    const modal = document.getElementById('game-modal');
-    const screen = document.getElementById('game-screen');
-    modal.style.display = "block";
-    screen.innerHTML = `<iframe src="${url}" allowfullscreen></iframe>`;
+    document.getElementById('game-modal').style.display = "block";
+    document.getElementById('game-screen').innerHTML = `<iframe src="${url}" allowfullscreen></iframe>`;
 }
 
 function closeGame() {
@@ -102,8 +93,7 @@ function closeGame() {
 
 function updateClock() {
     const now = new Date();
-    const clock = document.getElementById('clock');
-    if(clock) clock.innerText = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    document.getElementById('clock').innerText = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 }
 
 window.onload = init;
