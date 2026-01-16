@@ -31,12 +31,14 @@ function init() {
     updateClock();
     setInterval(updateClock, 1000);
 
-    // LOADING SCREEN TIMER
+    // Splash screen exit logic
     setTimeout(() => {
         const loader = document.getElementById('loading-screen');
-        loader.style.opacity = '0';
-        setTimeout(() => { loader.style.display = 'none'; }, 1000);
-    }, 5000); // 5 seconds
+        if(loader) {
+            loader.style.opacity = '0';
+            setTimeout(() => { loader.style.display = 'none'; }, 1000);
+        }
+    }, 5000);
 }
 
 function switchTab(tabId) {
@@ -53,20 +55,23 @@ function saveProfile() {
     if (name) {
         localStorage.setItem('honeydew_name', name);
         loadProfile();
-        alert("ID Card Updated!");
+        alert("Profile Sync Complete!");
     }
 }
 
 function loadProfile() {
     const name = localStorage.getItem('honeydew_name') || "New Student";
     document.getElementById('display-name').innerText = "Student ID: " + name;
-    document.getElementById('avatar-initial').innerText = name.charAt(0).toUpperCase();
+    const avatar = document.getElementById('avatar-initial');
+    if(avatar) avatar.innerText = name.charAt(0).toUpperCase();
     document.getElementById('name-input').value = name;
 }
 
 function renderTiles() {
     const homeGrid = document.getElementById('home-grid');
     const libraryGrid = document.getElementById('library-grid');
+    if(!homeGrid || !libraryGrid) return;
+
     gamesList.forEach(game => {
         homeGrid.appendChild(createTileElement(game));
         libraryGrid.appendChild(createTileElement(game));
