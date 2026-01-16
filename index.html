@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Honeydew Learning | Student Dashboard</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="loading-screen">
@@ -16,8 +15,6 @@
     </div>
 
     <div class="dashboard-container">
-        <div class="background-hero"></div>
-
         <nav class="side-nav">
             <div class="nav-logo">🍈</div>
             <div class="nav-icon active" id="btn-home" onclick="switchTab('home')">🏠</div>
@@ -29,16 +26,15 @@
         <main class="main-content">
             <header class="top-bar">
                 <div class="user-profile">
-                    <span class="profile-avatar" id="avatar-initial">S</span>
-                    <span class="profile-name" id="display-name">Loading...</span>
+                    <span id="display-name">Student ID: Cole</span>
                 </div>
-                <div class="top-time" id="clock">00:00</div>
+                <div id="clock">00:00</div>
             </header>
 
             <section id="tab-home" class="tab-content active">
                 <div class="tiles-grid" id="home-grid">
                     <div class="hero-feature tile-item" onclick="switchTab('library')">
-                        <div class="hero-text">
+                        <div class="tile-overlay">
                             <h2>Honeydew Learning Pro</h2>
                             <p>Your study path is ready. Click to browse modules.</p>
                         </div>
@@ -47,18 +43,15 @@
             </section>
 
             <section id="tab-library" class="tab-content">
-                <h2 class="tab-title">Full Module Library</h2>
                 <div class="tiles-grid" id="library-grid"></div>
             </section>
 
             <section id="tab-settings" class="tab-content">
-                <h2 class="tab-title">Student Profile Settings</h2>
-                <div class="settings-card">
-                    <div class="input-group">
-                        <label>Student Display Name</label>
-                        <input type="text" id="name-input" placeholder="Enter name...">
-                    </div>
-                    <button class="save-btn" onclick="saveProfile()">Update Profile</button>
+                <div class="settings-card" style="padding: 40px; background: #111; border-radius: 15px;">
+                    <h2>Settings</h2>
+                    <input type="text" id="name-input" placeholder="Change Name..." style="padding: 10px; border-radius: 5px; border: none; margin-bottom: 10px; width: 200px;">
+                    <br>
+                    <button onclick="saveProfile()" class="save-btn" style="padding: 10px 20px; background: var(--xbox-green); border: none; border-radius: 5px; color: white; cursor: pointer;">Save Profile</button>
                 </div>
             </section>
         </main>
@@ -66,9 +59,7 @@
 
     <div id="game-modal" class="modal">
         <div class="modal-content">
-            <div class="modal-header">
-                <span class="close-button" onclick="closeGame()">&times; Close Lesson</span>
-            </div>
+            <div class="modal-header"><span class="close-button" onclick="closeGame()">&times; Close Lesson</span></div>
             <div id="game-screen"></div>
         </div>
     </div>
