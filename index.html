@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Honeydew Learning | Student Dashboard</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="dashboard-container">
@@ -12,43 +13,48 @@
 
         <nav class="side-nav">
             <div class="nav-logo">🍈</div>
-            <div class="nav-icon active" onclick="switchTab('home')">🏠</div>
-            <div class="nav-icon" onclick="switchTab('library')">📚</div>
-            <div class="nav-icon" onclick="switchTab('settings')">⚙️</div>
+            <div class="nav-icon active" id="btn-home" onclick="switchTab('home')">🏠</div>
+            <div class="nav-icon" id="btn-library" onclick="switchTab('library')">📚</div>
+            <div class="nav-icon" id="btn-settings" onclick="switchTab('settings')">⚙️</div>
+            <div class="nav-icon panic-btn" onclick="panic()">🆘</div>
         </nav>
 
         <main class="main-content">
             <header class="top-bar">
                 <div class="user-profile">
                     <span class="profile-avatar" id="avatar-initial">S</span>
-                    <span class="profile-name" id="display-name">Student ID: 82931</span>
+                    <span class="profile-name" id="display-name">Loading Student...</span>
                 </div>
                 <div class="top-time" id="clock">00:00</div>
             </header>
 
             <section id="tab-home" class="tab-content active">
-                <div class="tiles-grid" id="game-grid">
-                    <div class="hero-feature tile-item">
+                <div class="tiles-grid" id="home-grid">
+                    <div class="hero-feature tile-item" onclick="switchTab('library')">
                         <div class="hero-text">
-                            <h2>Honeydew Pro</h2>
-                            <p>Unlock all advanced modules with your Student ID.</p>
+                            <h2>Welcome to Honeydew</h2>
+                            <p>Pick up where you left off in your modules.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
             <section id="tab-library" class="tab-content">
-                <h1>Full Course Library</h1>
+                <h2 class="tab-title">Module Library</h2>
                 <div class="tiles-grid" id="library-grid"></div>
             </section>
 
             <section id="tab-settings" class="tab-content">
-                <h1>Student Profile Settings</h1>
-                <div class="settings-box">
-                    <label>Student Name:</label>
-                    <input type="text" id="name-input" placeholder="Enter name...">
-                    <button onclick="saveProfile()" class="save-btn">Save to ID Card</button>
-                    <p style="margin-top:20px; opacity:0.6;">Local Storage: <span id="storage-status">Active</span></p>
+                <h2 class="tab-title">Student Profile</h2>
+                <div class="settings-card">
+                    <div class="input-group">
+                        <label>Display Name</label>
+                        <input type="text" id="name-input" placeholder="Enter your name...">
+                    </div>
+                    <button class="save-btn" onclick="saveProfile()">Update ID Card</button>
+                    <div class="info-footer">
+                        <p>Data stored locally in browser storage.</p>
+                    </div>
                 </div>
             </section>
         </main>
@@ -56,7 +62,7 @@
 
     <div id="game-modal" class="modal">
         <div class="modal-content">
-            <span class="close-button">&times;</span>
+            <span class="close-button" onclick="closeGame()">&times;</span>
             <div id="game-screen"></div>
         </div>
     </div>
