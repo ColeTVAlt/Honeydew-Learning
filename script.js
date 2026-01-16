@@ -1,3 +1,4 @@
+// Keeping your exact game list and logic
 const gamesList = [
     { name: "Kinetic Energy & Friction Simulation", desc: "Resources for kinetic energy.", url: "https://arithmeticworld.framer.website/lesson1", thumb: "images/aquapark.jpg" },
     { name: "Quantum Physics", desc: "Science Lab", url: "https://arithmeticworld.framer.website/lesson2", thumb: "images/backrooms.png" },
@@ -31,12 +32,14 @@ function init() {
     updateClock();
     setInterval(updateClock, 1000);
 
-    // Splash screen exit logic
+    // Splash Screen logic
     setTimeout(() => {
         const loader = document.getElementById('loading-screen');
         if(loader) {
             loader.style.opacity = '0';
-            setTimeout(() => { loader.style.display = 'none'; }, 1000);
+            setTimeout(() => { 
+                loader.style.visibility = 'hidden'; // Completely remove from mouse interaction
+            }, 1000);
         }
     }, 5000);
 }
@@ -55,16 +58,14 @@ function saveProfile() {
     if (name) {
         localStorage.setItem('honeydew_name', name);
         loadProfile();
-        alert("Profile Sync Complete!");
+        alert("ID Card Updated!");
     }
 }
 
 function loadProfile() {
-    const name = localStorage.getItem('honeydew_name') || "New Student";
-    document.getElementById('display-name').innerText = "Student ID: " + name;
-    const avatar = document.getElementById('avatar-initial');
-    if(avatar) avatar.innerText = name.charAt(0).toUpperCase();
-    document.getElementById('name-input').value = name;
+    const name = localStorage.getItem('honeydew_name') || "Cole";
+    const displayName = document.getElementById('display-name');
+    if(displayName) displayName.innerText = "Student ID: " + name;
 }
 
 function renderTiles() {
@@ -101,7 +102,8 @@ function closeGame() {
 
 function updateClock() {
     const now = new Date();
-    document.getElementById('clock').innerText = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    const clock = document.getElementById('clock');
+    if(clock) clock.innerText = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 }
 
 window.onload = init;
