@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Honeydew Learning | Student Dashboard</title>
+    <title>Honeydew Learning</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,7 +16,6 @@
 
     <div class="dashboard-container">
         <nav class="side-nav">
-            <div class="nav-logo">🍈</div>
             <div class="nav-icon active" id="btn-home" onclick="switchTab('home')">🏠</div>
             <div class="nav-icon" id="btn-library" onclick="switchTab('library')">📚</div>
             <div class="nav-icon" id="btn-settings" onclick="switchTab('settings')">⚙️</div>
@@ -25,10 +24,8 @@
 
         <main class="main-content">
             <header class="top-bar">
-                <div class="user-profile">
-                    <span id="display-name">Student ID: Cole</span>
-                </div>
-                <div id="clock">00:00</div>
+                <span id="display-name">STUDENT ID: COLE</span>
+                <span id="clock">00:00</span>
             </header>
 
             <section id="tab-home" class="tab-content active">
@@ -36,7 +33,7 @@
                     <div class="hero-feature tile-item" onclick="switchTab('library')">
                         <div class="tile-overlay">
                             <h2>Honeydew Learning Pro</h2>
-                            <p>Your study path is ready. Click to browse modules.</p>
+                            <p>Select a module to begin your session.</p>
                         </div>
                     </div>
                 </div>
@@ -47,11 +44,10 @@
             </section>
 
             <section id="tab-settings" class="tab-content">
-                <div class="settings-card" style="padding: 40px; background: #111; border-radius: 15px;">
-                    <h2>Settings</h2>
-                    <input type="text" id="name-input" placeholder="Change Name..." style="padding: 10px; border-radius: 5px; border: none; margin-bottom: 10px; width: 200px;">
-                    <br>
-                    <button onclick="saveProfile()" class="save-btn" style="padding: 10px 20px; background: var(--xbox-green); border: none; border-radius: 5px; color: white; cursor: pointer;">Save Profile</button>
+                <div style="max-width: 400px;">
+                    <h2 style="margin-bottom: 20px;">Profile Settings</h2>
+                    <input type="text" id="name-input" placeholder="Change Display Name..." style="width: 100%; padding: 15px; background: #111; border: 1px solid #333; color: white; border-radius: 10px; margin-bottom: 15px;">
+                    <button onclick="saveProfile()" style="width: 100%; padding: 15px; background: var(--user-blue); border: none; color: white; font-weight: bold; border-radius: 10px; cursor: pointer;">Save Changes</button>
                 </div>
             </section>
         </main>
@@ -59,7 +55,9 @@
 
     <div id="game-modal" class="modal">
         <div class="modal-content">
-            <div class="modal-header"><span class="close-button" onclick="closeGame()">&times; Close Lesson</span></div>
+            <div class="modal-header">
+                <span class="close-button" onclick="closeGame()">ESC // CLOSE LESSON</span>
+            </div>
             <div id="game-screen"></div>
         </div>
     </div>
