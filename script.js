@@ -6,7 +6,26 @@ const gamesList = [
     { name: "Quantum Physics", desc: "Science Lab", url: "https://arithmeticworld.framer.website/lesson2", thumb: "images/backrooms.png" },
     { name: "Global History", desc: "Civics Exam", url: "https://arithmeticworld.framer.website/lesson3", thumb: "images/baconmaydie.png" },
     { name: "Chemical Bonds", desc: "Organic Chem", url: "https://arithmeticworld.framer.website/lesson4", thumb: "images/drivemad.png" },
-    { name: "Logic Puzzles", desc: "English 101", url: "https://arithmeticworld.framer.website/lesson5", thumb: "images/driftboss.png" }
+    { name: "Advanced Geometric Proofs", desc: "English 101", url: "https://arithmeticworld.framer.website/lesson5", thumb: "images/driftboss.png" },
+    { name: "Advanced Geometric Proofs", desc: "English 101", url: "https://arithmeticworld.framer.website/lesson6", thumb: "images/fnaf.png" },
+    { name: "Standardized Testing Preparation", desc: "English 101", url: "https://arithmeticworld.framer.website/lesson7", thumb: "images/fnf.png" },
+    { name: "Inorganic Chemistry", desc: "English 101", url: "https://arithmeticworld.framer.website/lesson8", thumb: "images/chromedino.png" },
+    { name: "Medieval Literature", desc: "English 101", url: "https://arithmeticworld.framer.website/lesson9", thumb: "images/growagarden.png" },
+    { name: "Agricultural Revolution", desc: "English 101", url: "https://arithmeticworld.framer.website/lesson10", thumb: "images/stealabrainrot.png" },
+    { name: "Psycholinguistics", desc: "English 101", url: "https://arithmeticworld.framer.website/lesson14", thumb: "images/retrobowl.png" },
+    { name: "Renaissance Art History", desc: "English 101", url: "https://arithmeticworld.framer.website/lesson15", thumb: "images/vex6.png" },
+    { name: "Logic Puzzles", desc: "English 101", url: "https://arithmeticworld.framer.website/lesson5", thumb: "images/driftboss.png" },
+    { name: "Logic Puzzles", desc: "English 101", url: "https://arithmeticworld.framer.website/lesson5", thumb: "images/driftboss.png" },
+    { name: "Logic Puzzles", desc: "English 101", url: "https://arithmeticworld.framer.website/lesson5", thumb: "images/driftboss.png" },
+    { name: "Logic Puzzles", desc: "English 101", url: "https://arithmeticworld.framer.website/lesson5", thumb: "images/driftboss.png" },
+    { name: "Logic Puzzles", desc: "English 101", url: "https://arithmeticworld.framer.website/lesson5", thumb: "images/driftboss.png" },
+    { name: "Logic Puzzles", desc: "English 101", url: "https://arithmeticworld.framer.website/lesson5", thumb: "images/driftboss.png" },
+    { name: "Logic Puzzles", desc: "English 101", url: "https://arithmeticworld.framer.website/lesson5", thumb: "images/driftboss.png" },
+    { name: "Logic Puzzles", desc: "English 101", url: "https://arithmeticworld.framer.website/lesson5", thumb: "images/driftboss.png" },
+    { name: "Logic Puzzles", desc: "English 101", url: "https://arithmeticworld.framer.website/lesson5", thumb: "images/driftboss.png" },
+    { name: "Logic Puzzles", desc: "English 101", url: "https://arithmeticworld.framer.website/lesson5", thumb: "images/driftboss.png" },
+    { name: "Logic Puzzles", desc: "English 101", url: "https://arithmeticworld.framer.website/lesson5", thumb: "images/driftboss.png" },
+    { name: "Logic Puzzles", desc: "English 101", url: "https://arithmeticworld.framer.website/lesson5", thumb: "images/driftboss.png" },
 ];
 
 // ==========================================
