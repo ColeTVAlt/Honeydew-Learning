@@ -2,11 +2,11 @@
 // 1. DATA CENTER: ADD YOUR GAMES HERE
 // ==========================================
 const gamesList = [
-    { name: "Algebra Resources: Section 1", desc: "Resources for algebra part one.", url: "https://arithmeticworld.framer.website/lesson1", thumb: "images/aquapark.jpg" },
-    { name: "Quantum Physics", desc: "Science Lab", url: "https://example.com/game2", thumb: "https://picsum.photos/300/202" },
-    { name: "Global History", desc: "Civics Exam", url: "https://example.com/game3", thumb: "https://picsum.photos/300/203" },
-    { name: "Chemical Bonds", desc: "Organic Chem", url: "https://example.com/game4", thumb: "https://picsum.photos/300/204" },
-    { name: "Logic Puzzles", desc: "English 101", url: "https://example.com/game5", thumb: "https://picsum.photos/300/205" }
+    { name: "Kinetic Energy & Friction Simulation", desc: "Resources for kinetic energy.", url: "https://arithmeticworld.framer.website/lesson1", thumb: "images/aquapark.jpg" },
+    { name: "Quantum Physics", desc: "Science Lab", url: "https://arithmeticworld.framer.website/lesson2", thumb: "images/backrooms.png" },
+    { name: "Global History", desc: "Civics Exam", url: "https://arithmeticworld.framer.website/lesson3", thumb: "images/baconmaydie.png" },
+    { name: "Chemical Bonds", desc: "Organic Chem", url: "https://arithmeticworld.framer.website/lesson4", thumb: "images/drivemad.png" },
+    { name: "Logic Puzzles", desc: "English 101", url: "https://arithmeticworld.framer.website/lesson5", thumb: "images/driftboss.png" }
 ];
 
 // ==========================================
