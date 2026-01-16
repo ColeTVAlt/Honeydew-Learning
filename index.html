@@ -8,6 +8,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div id="loading-screen">
+        <div class="loader-content">
+            <div class="melon-logo">🍈</div>
+            <h1 class="shimmer-text">honeydew learning</h1>
+        </div>
+    </div>
+
     <div class="dashboard-container">
         <div class="background-hero"></div>
 
@@ -23,7 +30,7 @@
             <header class="top-bar">
                 <div class="user-profile">
                     <span class="profile-avatar" id="avatar-initial">S</span>
-                    <span class="profile-name" id="display-name">Loading Student...</span>
+                    <span class="profile-name" id="display-name">Loading...</span>
                 </div>
                 <div class="top-time" id="clock">00:00</div>
             </header>
@@ -32,29 +39,26 @@
                 <div class="tiles-grid" id="home-grid">
                     <div class="hero-feature tile-item" onclick="switchTab('library')">
                         <div class="hero-text">
-                            <h2>Welcome to Honeydew</h2>
-                            <p>Pick up where you left off in your modules.</p>
+                            <h2>Honeydew Learning Pro</h2>
+                            <p>Your study path is ready. Click to browse modules.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
             <section id="tab-library" class="tab-content">
-                <h2 class="tab-title">Module Library</h2>
+                <h2 class="tab-title">Full Module Library</h2>
                 <div class="tiles-grid" id="library-grid"></div>
             </section>
 
             <section id="tab-settings" class="tab-content">
-                <h2 class="tab-title">Student Profile</h2>
+                <h2 class="tab-title">Student Profile Settings</h2>
                 <div class="settings-card">
                     <div class="input-group">
-                        <label>Display Name</label>
-                        <input type="text" id="name-input" placeholder="Enter your name...">
+                        <label>Student Display Name</label>
+                        <input type="text" id="name-input" placeholder="Enter name...">
                     </div>
-                    <button class="save-btn" onclick="saveProfile()">Update ID Card</button>
-                    <div class="info-footer">
-                        <p>Data stored locally in browser storage.</p>
-                    </div>
+                    <button class="save-btn" onclick="saveProfile()">Update Profile</button>
                 </div>
             </section>
         </main>
@@ -62,7 +66,9 @@
 
     <div id="game-modal" class="modal">
         <div class="modal-content">
-            <span class="close-button" onclick="closeGame()">&times;</span>
+            <div class="modal-header">
+                <span class="close-button" onclick="closeGame()">&times; Close Lesson</span>
+            </div>
             <div id="game-screen"></div>
         </div>
     </div>
