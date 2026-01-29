@@ -6,11 +6,13 @@
     <title>Nexus - Empowering Education For All</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;600;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.min.js"></script>
 </head>
 <body>
+    <div id="particles-js"></div>
+    <div class="star-field"></div>
     <div class="rgb-bloom pink"></div>
     <div class="rgb-bloom green"></div>
-    <div class="rgb-bloom red"></div>
 
     <div class="interface-wrapper">
         <nav class="nexus-nav">
@@ -20,7 +22,7 @@
         </nav>
 
         <section class="hero-stage">
-            <div class="hero-card" style="background-image: url('images/hero.jpg');" onclick="openGame('https://arithmeticworld.framer.website/lesson1')">
+            <div class="hero-card float-anim" style="background-image: url('images/hero.jpg');" onclick="openGame('https://arithmeticworld.framer.website/lesson1')">
                 <div class="hero-inner">
                     <span class="status-tag">ACTIVE_MODULE</span>
                     <h1>Kinetic Energy</h1>
@@ -30,7 +32,6 @@
         </section>
 
         <section class="discovery-section">
-            <h3 class="label">EDUCATIONAL ARCHIVES</h3>
             <div class="poki-grid" id="module-container">
                 </div>
         </section>
@@ -38,10 +39,11 @@
 
     <div id="tunnel" class="tunnel-overlay">
         <div class="tunnel-header">
-            <button onclick="closeTunnel()">BACK TO NEXUS</button>
+            <button class="back-btn" onclick="closeTunnel()">← BACK TO NEXUS</button>
             <div id="clock">00:00</div>
         </div>
-        <div id="tunnel-content"></div>
+        <div id="tunnel-content">
+            </div>
     </div>
 
     <script src="script.js"></script>
