@@ -3,35 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HONEYDEW // NEXUS</title>
+    <title>Nexus - Empowering Education For All</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;600;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="ambient-glow"></div>
+    <div class="rgb-bloom pink"></div>
+    <div class="rgb-bloom green"></div>
+    <div class="rgb-bloom red"></div>
 
     <div class="interface-wrapper">
         <nav class="nexus-nav">
-            <div class="brand">🍈</div>
-            <div class="nav-links">
-                <span class="active">DASHBOARD</span>
-                <span>ARCHIVE</span>
-            </div>
+            <div class="brand">🍈 NEXUS</div>
+            <div class="tagline">Empowering Education For All</div>
             <div class="panic-ring" onclick="panic()">PANIC_EXIT</div>
         </nav>
 
         <section class="hero-stage">
-            <div class="hero-card" onclick="openGame('https://arithmeticworld.framer.website/lesson1')">
+            <div class="hero-card" style="background-image: url('images/hero.jpg');" onclick="openGame('https://arithmeticworld.framer.website/lesson1')">
                 <div class="hero-inner">
-                    <span class="status-tag">LAST VIEWED</span>
+                    <span class="status-tag">ACTIVE_MODULE</span>
                     <h1>Kinetic Energy</h1>
-                    <p>Continue your physics simulation from Lesson 01.</p>
+                    <p>Physics Simulation // Lesson 01</p>
                 </div>
             </div>
         </section>
 
         <section class="discovery-section">
-            <h3 class="label">LEARNING MODULES</h3>
+            <h3 class="label">EDUCATIONAL ARCHIVES</h3>
             <div class="poki-grid" id="module-container">
                 </div>
         </section>
@@ -39,7 +38,7 @@
 
     <div id="tunnel" class="tunnel-overlay">
         <div class="tunnel-header">
-            <button onclick="closeTunnel()">CLOSE_MODULE</button>
+            <button onclick="closeTunnel()">BACK TO NEXUS</button>
             <div id="clock">00:00</div>
         </div>
         <div id="tunnel-content"></div>
