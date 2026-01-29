@@ -3,52 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Honeydew Learning</title>
+    <title>Honeydew Remix | OS</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="nebula-bg"></div>
+
     <div id="loading-screen">
         <div class="loader-content">
             <div class="melon-logo">🍈</div>
-            <h1 class="shimmer-text">honeydew learning</h1>
+            <h1 class="shimmer-text">honeydew</h1>
         </div>
     </div>
 
     <div class="dashboard-container">
         <nav class="side-nav">
+            <div class="nav-brand">🍈</div>
             <div class="nav-icon active" id="btn-home" onclick="switchTab('home')">🏠</div>
             <div class="nav-icon" id="btn-library" onclick="switchTab('library')">📚</div>
             <div class="nav-icon" id="btn-settings" onclick="switchTab('settings')">⚙️</div>
-            <div class="nav-icon panic-btn" onclick="panic()">🆘</div>
+            <div class="panic-btn" onclick="panic()">🆘</div>
         </nav>
 
         <main class="main-content">
             <header class="top-bar">
-                <span id="display-name">STUDENT ID: COLE</span>
-                <span id="clock">00:00</span>
+                <div class="status-group">
+                    <span class="glitch-text" data-text="SYSTEM_READY">SYSTEM_READY</span>
+                    <span id="display-name">USER: COLE</span>
+                </div>
+                <div id="clock">00:00</div>
             </header>
 
             <section id="tab-home" class="tab-content active">
-                <div class="tiles-grid" id="home-grid">
-                    <div class="hero-feature tile-item" onclick="switchTab('library')">
+                <div class="tiles-grid">
+                    <div class="tile hero" style="background-image: url('images/hero.jpg');" onclick="switchTab('library')">
                         <div class="tile-overlay">
-                            <h2>Honeydew Learning Pro</h2>
-                            <p>Select a module to begin your session.</p>
+                            <span class="tag">FEATURED</span>
+                            <h2>Continue Research</h2>
+                            <p>Pick up where you left off in the archives.</p>
                         </div>
+                    </div>
+                    <div class="tile" style="background-image: url('images/aquapark.jpg');" onclick="openGame('https://arithmeticworld.framer.website/lesson1')">
+                        <div class="tile-overlay"><span>Kinetic Energy</span></div>
+                    </div>
+                    <div class="tile" style="background-image: url('images/backrooms.png');" onclick="openGame('https://arithmeticworld.framer.website/lesson2')">
+                        <div class="tile-overlay"><span>Quantum Physics</span></div>
                     </div>
                 </div>
             </section>
 
             <section id="tab-library" class="tab-content">
-                <div class="tiles-grid" id="library-grid"></div>
-            </section>
-
-            <section id="tab-settings" class="tab-content">
-                <div style="max-width: 400px;">
-                    <h2 style="margin-bottom: 20px;">Profile Settings</h2>
-                    <input type="text" id="name-input" placeholder="Change Display Name..." style="width: 100%; padding: 15px; background: #111; border: 1px solid #333; color: white; border-radius: 10px; margin-bottom: 15px;">
-                    <button onclick="saveProfile()" style="width: 100%; padding: 15px; background: var(--user-blue); border: none; color: white; font-weight: bold; border-radius: 10px; cursor: pointer;">Save Changes</button>
-                </div>
+                <div class="tiles-grid" id="full-library">
+                    </div>
             </section>
         </main>
     </div>
@@ -56,7 +63,8 @@
     <div id="game-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <span class="close-button" onclick="closeGame()">ESC // CLOSE LESSON</span>
+                <span class="proxy-url" id="proxy-display">SECURE_TUNNEL // ENCRYPTED</span>
+                <button class="close-btn" onclick="closeGame()">CLOSE_MODULE</button>
             </div>
             <div id="game-screen"></div>
         </div>
