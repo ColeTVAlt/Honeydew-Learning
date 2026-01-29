@@ -5,39 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HONEYDEW // NEXUS</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;600;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="ambient-chaos"></div>
+    <div class="ambient-glow"></div>
 
-    <div class="nexus-wrapper">
-        <header class="nexus-header">
-            <div class="logo">🍈 NEXUS</div>
-            <div class="time" id="clock">00:00</div>
-            <div class="panic-ring" onclick="panic()">PANIC</div>
-        </header>
+    <div class="interface-wrapper">
+        <nav class="nexus-nav">
+            <div class="brand">🍈</div>
+            <div class="nav-links">
+                <span class="active">DASHBOARD</span>
+                <span>ARCHIVE</span>
+            </div>
+            <div class="panic-ring" onclick="panic()">PANIC_EXIT</div>
+        </nav>
 
-        <section class="discovery-engine">
-            <h2 class="section-title">Jump Back In</h2>
-            <div class="hero-nexus" id="featured-module" onclick="launch('https://arithmeticworld.framer.website/lesson1')">
+        <section class="hero-stage">
+            <div class="hero-card" onclick="openGame('https://arithmeticworld.framer.website/lesson1')">
                 <div class="hero-inner">
-                    <span class="category">PHYSICS_SYSTEM_01</span>
-                    <h1>KINETIC ENERGY</h1>
-                    <p>Continue your research on motion and velocity.</p>
+                    <span class="status-tag">LAST VIEWED</span>
+                    <h1>Kinetic Energy</h1>
+                    <p>Continue your physics simulation from Lesson 01.</p>
                 </div>
             </div>
+        </section>
 
-            <h2 class="section-title">Your Apps</h2>
-            <div class="poki-grid" id="app-grid">
+        <section class="discovery-section">
+            <h3 class="label">LEARNING MODULES</h3>
+            <div class="poki-grid" id="module-container">
                 </div>
         </section>
     </div>
 
     <div id="tunnel" class="tunnel-overlay">
-        <div class="tunnel-nav">
-            <button onclick="closeTunnel()">BACK TO NEXUS</button>
-            <span id="tunnel-status">ENCRYPTED_STREAM</span>
+        <div class="tunnel-header">
+            <button onclick="closeTunnel()">CLOSE_MODULE</button>
+            <div id="clock">00:00</div>
         </div>
-        <div id="stream-container"></div>
+        <div id="tunnel-content"></div>
     </div>
 
     <script src="script.js"></script>
