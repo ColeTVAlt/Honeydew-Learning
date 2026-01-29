@@ -1,67 +1,84 @@
 :root {
-    --rd: #4a0404; --gn: #042e0e; --pk: #4a042e;
-    --glass: rgba(255, 255, 255, 0.05);
+    --dk-red: #3b0a0a;
+    --dk-green: #0a2b16;
+    --dk-pink: #3b0a2b;
+    --xbox-focus: #ffffff;
 }
 
 body, html {
     margin: 0; padding: 0; background: #000; color: #fff;
-    font-family: 'Inter', sans-serif; height: 100vh; overflow-x: hidden;
+    font-family: 'Outfit', sans-serif; overflow-x: hidden;
 }
 
-/* --- THE NEW AMBIENT LIGHTING --- */
-.ambient-chaos {
+/* --- THE NEW RGB MESH --- */
+.ambient-glow {
     position: fixed; inset: 0; z-index: -1;
     background: 
-        radial-gradient(circle at 10% 90%, var(--pk) 0%, transparent 40%),
-        radial-gradient(circle at 90% 10%, var(--gn) 0%, transparent 40%),
-        radial-gradient(circle at 50% 50%, var(--rd) 0%, transparent 50%);
-    opacity: 0.8; animation: moveBg 15s infinite alternate;
+        radial-gradient(circle at 15% 15%, var(--dk-red) 0%, transparent 45%),
+        radial-gradient(circle at 85% 85%, var(--dk-green) 0%, transparent 45%),
+        radial-gradient(circle at 50% 50%, var(--dk-pink) 0%, transparent 55%);
+    opacity: 0.7; animation: aura-shift 12s infinite alternate ease-in-out;
 }
 
-@keyframes moveBg { to { transform: scale(1.1) rotate(2deg); } }
+@keyframes aura-shift {
+    from { transform: scale(1); filter: hue-rotate(0deg); }
+    to { transform: scale(1.15); filter: hue-rotate(15deg); }
+}
 
-.nexus-wrapper { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+.interface-wrapper { max-width: 1400px; margin: 0 auto; padding: 40px; }
 
-/* --- HEADER --- */
-.nexus-header {
+/* --- NAKED NAV (No Sidebar) --- */
+.nexus-nav {
     display: flex; justify-content: space-between; align-items: center;
-    margin-bottom: 60px; padding: 20px;
-    background: var(--glass); border-radius: 100px; border: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 50px; background: rgba(255,255,255,0.05);
+    padding: 15px 30px; border-radius: 100px; backdrop-filter: blur(20px);
 }
 
-/* --- THE HERO (XBOX VIBES) --- */
-.hero-nexus {
-    width: 100%; height: 350px; border-radius: 40px;
-    background: linear-gradient(135deg, #111, #000);
-    border: 2px solid rgba(255,255,255,0.1);
-    margin-bottom: 40px; position: relative; overflow: hidden;
+/* --- XBOX HERO STYLE --- */
+.hero-card {
+    height: 380px; width: 100%; border-radius: 45px;
+    background: linear-gradient(135deg, #111, #050505);
+    border: 1px solid rgba(255,255,255,0.1); margin-bottom: 50px;
     cursor: pointer; transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    position: relative; overflow: hidden;
 }
 
-.hero-nexus:hover { transform: scale(1.02); border-color: #ff69b4; box-shadow: 0 0 50px rgba(74, 4, 46, 0.5); }
+.hero-card:hover { 
+    transform: scale(1.02); border-color: var(--xbox-focus);
+    box-shadow: 0 0 60px rgba(255, 105, 180, 0.2);
+}
 
-.hero-inner { position: absolute; bottom: 40px; left: 40px; }
-.hero-inner h1 { font-size: 3rem; margin: 10px 0; font-weight: 900; }
+.hero-inner { position: absolute; bottom: 50px; left: 50px; }
+.hero-inner h1 { font-size: 3.5rem; margin: 5px 0; font-weight: 900; letter-spacing: -2px; }
 
-/* --- THE GRID (POKI VIBES) --- */
+/* --- POKI GRID STYLE --- */
 .poki-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     gap: 20px;
 }
 
 .tile {
-    aspect-ratio: 1/1; background: var(--glass);
-    border-radius: 35px; border: 1px solid rgba(255,255,255,0.1);
+    aspect-ratio: 1/1; background: rgba(255,255,255,0.04);
+    border-radius: 35px; border: 1px solid rgba(255,255,255,0.08);
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    cursor: pointer; transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    backdrop-filter: blur(10px);
+    cursor: pointer; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-align: center; padding: 10px;
 }
 
-.tile:hover { transform: translateY(-10px) rotate(3deg); background: rgba(255,255,255,0.1); }
-.tile-icon { font-size: 40px; margin-bottom: 10px; }
-.tile span { font-size: 12px; font-weight: bold; opacity: 0.7; }
+.tile:hover { 
+    transform: translateY(-15px) scale(1.1); 
+    background: rgba(255,255,255,0.1); border-color: #fff;
+}
 
-/* The Dynamic Glowing Borders */
-.tile:nth-child(3n+1):hover { box-shadow: 0 10px 30px var(--pk); border-color: #ff69b4; }
-.tile:nth-child(3n+2):hover { box-shadow: 0 10px 30px var(--gn); border-color: #2ecc71; }
-.tile:nth-child(3n+3):hover { box-shadow: 0 10px 30px var(--rd); border-color: #e74c3c; }
+/* Tri-Tone Glow for Tiles */
+.tile:nth-child(3n+1):hover { box-shadow: 0 10px 40px var(--dk-pink); }
+.tile:nth-child(3n+2):hover { box-shadow: 0 10px 40px var(--dk-green); }
+.tile:nth-child(3n+3):hover { box-shadow: 0 10px 40px var(--dk-red); }
+
+.tile span { font-size: 11px; font-weight: 600; letter-spacing: 1px; opacity: 0.6; }
+
+/* --- TUNNEL --- */
+.tunnel-overlay { display: none; position: fixed; inset: 0; background: #000; z-index: 1000; flex-direction: column; }
+.tunnel-header { padding: 20px; display: flex; justify-content: space-between; background: #0a0a0a; }
+#tunnel-content { flex: 1; }
+#tunnel-content iframe { width: 100%; height: 100%; border: none; }
